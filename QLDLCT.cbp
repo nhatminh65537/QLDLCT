@@ -35,6 +35,14 @@
 		<Unit filename="DateTime.cpp" />
 		<Unit filename="DateTime.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="Appointment.cpp" />
+		<Unit filename="Appointment.h" />
+		<Unit filename="Customer.cpp" />
+		<Unit filename="Customer.h" />
+		<Unit filename="ServiceDone.cpp" />
+		<Unit filename="ServiceDone.h" />
+		<Unit filename="Member.cpp" />
+		<Unit filename="Member.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
