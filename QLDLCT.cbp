@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="DateTime.cpp" />
+		<Unit filename="DateTime.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

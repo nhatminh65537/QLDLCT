@@ -3,6 +3,8 @@
 
 #define NONE -1
 
+#include <string>
+using namespace std;
 class DateTime
 {
     private:
@@ -34,6 +36,8 @@ class DateTime
         DateTime operator+(int minutes) const;
         DateTime operator-(int minutes) const;
         const string& toString() const;
+
+        static DateTime now();
 };
 
 DateTime nullTime(NONE, NONE, NONE, NONE, NONE);

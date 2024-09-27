@@ -1,4 +1,7 @@
 #include "DateTime.h"
+#include <string>
+#include <time.h>
+using namespace std;
 
 bool operator==(const DateTime& lhs, const DateTime& rhs) {
     return lhs.year == rhs.year && lhs.month == rhs.month && lhs.day == rhs.day && lhs.hour == rhs.hour && lhs.minute == rhs.minute;
@@ -32,13 +35,13 @@ bool operator>(const DateTime& lhs, const DateTime& rhs) {
     return !(lhs < rhs) && !(lhs == rhs);
 }
 
-const DateTime::string& toString() const {
+const string& DateTime::toString() const {
     static string str;
     str = to_string(hour) + ":" + to_string(minute) + " " + to_string(day) + "-" + to_string(month) + "-" + to_string(year);
     return str;
 }
 
-static bool DateTime::validate(int year, int month, int day, int hour, int minute) {
+bool DateTime::validate(int year, int month, int day, int hour, int minute) {
     if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31 || hour < 0 || hour > 23 || minute < 0 || minute > 59) {
         return false;
     }
@@ -96,4 +99,10 @@ DateTime DateTime::operator-(int minutes) const {
         dt.month = 12 + dt.month % 12;
     }
     return dt;
+}
+
+DateTime DateTime::now() {
+    time_t t = time(0);
+    struct tm* now = localtime(&t);
+    return DateTime(now->tm_year + 1900, now->tm_mon + 1, now->tm_mday, now->tm_hour, now->tm_min);
 }
